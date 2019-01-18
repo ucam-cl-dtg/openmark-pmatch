@@ -15,9 +15,9 @@
    along with this program; if not, write to the Free Software
    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-package om.helper;
+package org.isaacphysics.thirdparty.openmark.marker;
 
-import util.misc.Strings;
+import org.isaacphysics.thirdparty.openmark.util.Strings;
 
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
