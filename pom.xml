@@ -5,7 +5,8 @@
   <groupId>org.isaacphysics.thirdparty</groupId>
   <artifactId>openmark-pmatch</artifactId>
   <packaging>jar</packaging>
-  <version>1.12.1-SNAPSHOT</version>
+  <version>1.0.0-SNAPSHOT</version>
+  <!-- OpenMark code from version 1.12.1 -->
   <name>openmark-pmatch</name>
   <url>https://github.com/ucam-cl-dtg/openmark-pmatch</url>
 
