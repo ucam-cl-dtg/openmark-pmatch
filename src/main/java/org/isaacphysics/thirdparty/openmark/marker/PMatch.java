@@ -17,6 +17,7 @@
 
    Notice:
    18/01/2019 - Reorganised package structure - Meurig Thomas (mlt47)
+   23/01/2019 - Altered some comments for java doc generation - Meurig Thomas (mlt47)
  */
 package org.isaacphysics.thirdparty.openmark.marker;
 
@@ -27,23 +28,22 @@ import java.util.regex.Matcher;
 import java.util.ArrayList;
 
 /**
- * <p>The OpenMark <code>PMatch</code> (pattern match) class is used to test
- * if a student response string matches a specified response pattern.</p>
+ * The OpenMark <code>PMatch</code> (pattern match) class is used to test
+ * if a student response string matches a specified response pattern.
  * 
- * <p>PMatch extends the older OpenMark Match routine
+ * PMatch extends the older OpenMark Match routine
  * <ul>
  * <li>to allow misspellings of a single character or two characters for longer words</li>
  * <li>to support the proximity of words</li>
  * </ul>
- * </p>
  *
- * <p>Changes since OpenMark 1.16<br>
+ * Changes since OpenMark 1.16<br>
  * It is now possible to define synonyms for words with
  * m.synonym("word", "synonym list");
  * enabling the single "word" to be placed in various matches rather than having
  * to repeat the "synonym list" time and again. Before the match is carried out the
  * "word" is replaced (note replaced and not extended) by the "synonym list".
- * </p>
+ *
  * <p>Changes since OpenMark 1.7.2<br>
  * <ul>
  * <li>Experience has shown that the proximity function delivers much of
@@ -56,37 +56,37 @@ import java.util.ArrayList;
  * <li>the misspellings rules ignore wildcards when calculating the length of the
  * pattern to be matched.</li>
  * </ul>
- * </p>
+ *
  * <p>Changes from Match()</p>
- * <p><b>Match users should beware</b> that:
+ * <b>Match users should beware</b> that:
  * <ul>
  * <li>In PMatch the response is set and then matched against multiple patterns
  * c.f. Match where the pattern is set and then matched against a response.</li>
  * <li>In PMatch the word OR symbol is '|'. This replaces the $ used by Match.</li>
  * </ul>
- * </p>
+ *
  * <p>PMatch works on the basis that you have a student response which you wish
  * to match against any number of response matching patterns.</p>
  * 
- * <p>Create a PMatch object with the student response as a parameter<br/>
- * <code>PMatch m = new PMatch(resp);</code><br/>
+ * <p>Create a PMatch object with the student response as a parameter<br>
+ * <code>PMatch m = new PMatch(resp);</code><br>
  * where resp is a String holding the student response.</p>
  * 
- * <p>Or create a PMatch object with an empty student response<br/>
- * <code>PMatch m = new PMatch("");</code><br/>
+ * <p>Or create a PMatch object with an empty student response<br>
+ * <code>PMatch m = new PMatch("");</code><br>
  * then set the student response using<br>
  * <code>m.setResponse(resp);</code></p>
  * 
  * <p>Then carry out repeated response matching tests using the match method.
- * Match returns true if the student response contains the pattern.<br/>
+ * Match returns true if the student response contains the pattern.<br>
  * <code>if (m.match("mow", "tom|dick|harry")) { }</code></p>
  * 
- * <p>The match method takes two parameters
+ * The match method takes two parameters
  * <ul>
  * <li>the matching options: <code>mow</code></li>
  * <li>the words to be matched: <code>tom|dick|harry</code></li>
  * </ul>
- * </p>
+ *
  * 
  * <p>The basic unit that PMatch operates on is the word, where a word is defined
  * as a sequence of characters between spaces.</p>
@@ -104,8 +104,9 @@ import java.util.ArrayList;
  * wish to use any of these as a delimiter in a response they should replace it
  * with 'space' using the standard Java method replace() before calling PMatch.</p>
  * 
- * <p>The matching options are:
+ * The matching options are:
  * <table border="1">
+ * <caption>Matching options</caption>
  * <tr><th>Matching option</th><th>Symbol</th><th>Description</th></tr>
  * <tr><td>allowExtraChars</td><td>c</td><td>Extra characters can be anywhere
  * within the word. Authors are expected to omit allowExtraChars when using the
@@ -151,11 +152,12 @@ import java.util.ArrayList;
  * any two words specified in the proximity sequence. The words must not span sentences.</td></tr>
  * <tr><td>allowProximityOf4</td><td>p4</td><td>Four words are allowed in between
  * any two words specified in the proximity sequence. The words must not span sentences.</td></tr>
- * </table></p>
+ * </table>
  * 
- * <p>Within a word 'special characters' provide more localised control of the
+ * Within a word 'special characters' provide more localised control of the
  * patterns:
  * <table border="1">
+ * <caption>Special characters</caption>
  * <tr><th>Special character</th><th>Symbol</th><th>Description</th></tr>
  * <tr><td>Word AND</td><td>space</td><td>'space' delimits words and acts as the
  * logical AND.</td></tr>
@@ -174,12 +176,13 @@ import java.util.ArrayList;
  * proximity control rule that the words must be in the order given.</td></tr>
  * <tr><td>Single character wildcard</td><td>#</td><td>Matches any single
  * character.</td></tr>
- * <tr><td>Multiple character wildcard</td><td>&</td><td>Matches any sequence of
+ * <tr><td>Multiple character wildcard</td><td>&amp;</td><td>Matches any sequence of
  * characters including none.</td></tr>
- * </table></p>
+ * </table>
  * 
- * <p>Examples:
+ * Examples:
  * <table border="1">
+ * <caption>Examples</caption>
  * <tr><th>Student response</th><th>Matching options</th><th>Pattern match</th><th>
  * match method return</th></tr>
  * <tr><td>tom dick harry</td><td>empty</td><td>tom dick harry</td><td>true.
@@ -207,7 +210,7 @@ import java.util.ArrayList;
  * </td></tr>
  * <tr><td>rick</td><td>empty</td><td>#ick</td><td>true. The first character can
  * be anything.</td></tr>
- * <tr><td>harold</td><td>empty</td><td>har&</td><td>true. Any sequence of
+ * <tr><td>harold</td><td>empty</td><td>har&amp;</td><td>true. Any sequence of
  * characters can follow 'har'.</td></tr>
  * <tr><td>tom married maud, sid married jane.</td><td>mow</td><td>tom_maud</td>
  * <td>true. Only one word is between tom and maud.</td></tr>
@@ -216,17 +219,17 @@ import java.util.ArrayList;
  * allowAnyWordOrder matching option.</td></tr>
  * <tr><td>tom married maud, sid married jane.</td><td>mow</td><td>tom_jane</td>
  * <td>false. Only two words are allowed between tom and jane.</td></tr>
- * <tr><td>tom married maud</td><td>mow</td><td>tom|thomas marr& maud</td>
+ * <tr><td>tom married maud</td><td>mow</td><td>tom|thomas marr&amp; maud</td>
  * <td>true.</td></tr>
- * <tr><td>maud marries thomas</td><td>mow</td><td>tom|thomas marr& maud</td>
+ * <tr><td>maud marries thomas</td><td>mow</td><td>tom|thomas marr&amp; maud</td>
  * <td>true.</td></tr>
- * <tr><td>tom is to marry maud</td><td>mow</td><td>tom|thomas marr& maud</td>
+ * <tr><td>tom is to marry maud</td><td>mow</td><td>tom|thomas marr&amp; maud</td>
  * <td>true.</td></tr>
  * <tr><td>tempratur</td><td>m2ow</td><td>temperature</td>
  * <td>true. Two characters are missing.</td></tr>
  * <tr><td>temporatur</td><td>m2ow</td><td>temperature</td><td>true. Two characters
  * are incorrect; one has been replaced and one is missing.</td></tr>
- * </table></p>
+ * </table>
  * 
  * <h2>History</h2>
  * <p>The underlying structure of the response matching described here was developed
@@ -323,7 +326,7 @@ public class PMatch
 	
 	/**
 	  * Constructs a response object via setResponse()
-	  * @param String response
+	  * @param response response string
 	  * 
 	  */
 	public PMatch(String response) {
@@ -351,18 +354,18 @@ public class PMatch
 	 * The pattern is a set of one or more words (each word separated by a space).
 	 * To get a match, all of the words in the pattern must match with a word
 	 * in the string you are matching against. Extra control of the matching
-	 * process can be achieved using the '&', '#' '|' and '_' characters. If you
+	 * process can be achieved using the '&amp;', '#' '|' and '_' characters. If you
 	 * want to use these characters literally, precede them with the two
 	 * backslash characters.
 	 * <br>
-	 * '&' means match any string (including empty). <br>
+	 * '&amp;' means match any string (including empty). <br>
 	 * '#' means match any character. <br>
 	 * '|' match with the preceding OR the next word. <br>
 	 * '[]' means treat the Word group as an alternative in an 'or' list
 	 * '_' match if the linked words exist in the given order and with no more than
 	 *     two intervening words. <br>
 	 * See the examples above for details of usage.
-	 * @param pattern
+	 * @param pattern the pattern to set.
 	 */
 	public void setPattern(String pattern) {
 		int		i = 0, wordCount = 0;
@@ -534,7 +537,7 @@ public class PMatch
    /**
 	 * matchWordEx handles groups of 'or-ed' words
 	 * Tests whether the specified string satisfies the pattern matching rules.
-	 * @param response
+	 * @param response - the response
 	 * @return if the response matches the pattern, this method returns a
 	 * value of <code>true</code>, otherwise it returns <code>false</code>.
 	 *
@@ -667,7 +670,7 @@ public class PMatch
 
 	/**
 	 * match works on whole replies but proximity only works within sentences
-	 * 
+	 * @param pattern - the pattern to match
 	 */
 	private boolean matchMain(String pattern) {
 		boolean	matched;
@@ -1029,6 +1032,9 @@ public class PMatch
 	 * matching options and special characters specified
 	 * 
 	 * match works on whole reply
+	 * @param matchingOptions the options for matching
+	 * @param pattern the pattern to match
+	 * @return whether there was a match or not
 	 */
 			
 	public boolean match(String matchingOptions, String pattern) {
@@ -1200,8 +1206,8 @@ public class PMatch
 	////////////////////////////////////////////////////////////////////////////////
 
 	/** count characters in a subpattern, excluding wildcards
-	  * @param String subPattern
-	  * returns length
+	  * @param sPattern subPattern
+	  * @return length
 	 **/
 	private int countSubPatternChars(String sPattern) {
 	int	iptr, fullLength, length;
@@ -1222,7 +1228,8 @@ public class PMatch
 	////////////////////////////////////////////////////////////////////////////////
 
 	/** Store synonyms
-	  * @param String synonymPattern, synonyms
+	  * @param lsynonymPattern synonymPatterns
+	  * @param lsynonyms  synonyms
 	  * 
 	 **/
 	public void synonym(String lsynonymPattern, String lsynonyms)

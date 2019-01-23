@@ -17,6 +17,7 @@
 
    Notice:
    18/01/2019 - Reorganised package structure - Meurig Thomas (mlt47)
+   23/01/2019 - Altered some comments for java doc generation - Meurig Thomas (mlt47)
  */
 package org.isaacphysics.thirdparty.openmark.util;
 
@@ -72,9 +73,9 @@ public class Strings
 	 * Split string on runs of , and space. Handle the empty case as you would expect.
 	 *
 	 * So, for example
-	 *     "frog, toad" -> { "frog", "toad" }
-	 *     "" -> {}
-	 *     ",,,," -> {}
+	 *     "frog, toad" -&gt; { "frog", "toad" }
+	 *     "" -&gt; {}
+	 *     ",,,," -&gt; {}
 	 *
 	 * @param string the string to split
 	 * @return the separate items from the list.
@@ -88,9 +89,9 @@ public class Strings
 	 * Split string on runs of the separator characters. Handle the empty case as you would expect.
 	 *
 	 * So, for example
-	 *     ", ", "frog, toad" -> { "frog", "toad" }
-	 *     ", ", "" -> {}
-	 *     ", ", ",,,," -> {}
+	 *     ", ", "frog, toad" -&gt; { "frog", "toad" }
+	 *     ", ", "" -&gt; {}
+	 *     ", ", ",,,," -&gt; {}
 	 *
 	 * @param separators the characters that are separators.
 	 * @param string the string to split
@@ -234,8 +235,8 @@ public class Strings
 	/** Format used for numbers to one DP. */
 	private static final NumberFormat ONEDP = new DecimalFormat("#########0.0");
 	/**
-	 * @param iNumber
-	 * @param iDivisor
+	 * @param iNumber the number
+	 * @param iDivisor the divisor
 	 * @return a string that is iNumber/iDivisor to one DP.
 	 */
 	public static String formatOneDecimal(int iNumber, int iDivisor)
@@ -244,7 +245,7 @@ public class Strings
 		return formatOneDecimal(iNumber/(double) iDivisor);
 	}
 	/**
-	 * @param dNumber
+	 * @param dNumber the number
 	 * @return Formats the number to one DP.
 	 */
 	public static String formatOneDecimal(double dNumber)
@@ -336,7 +337,7 @@ public class Strings
 	}
 
 	/**
-	 * @param bytes
+	 * @param bytes the bytes
 	 * @return a string of hex made from the bytes.
 	 */
 	public static String byteArrayToHexString(byte[] bytes) {
@@ -349,7 +350,7 @@ public class Strings
 	}
 	
 	/**
-	 * @param str
+	 * @param str the string to check
 	 * @return true if the str is null or empty
 	 */
 	public static boolean isEmpty(String str) {
@@ -357,7 +358,7 @@ public class Strings
 	}
 
 	/**
-	 * @param str
+	 * @param str the string to check
 	 * @return true if the str is null or empty
 	 */
 	public static boolean isNotEmpty(String str) {
